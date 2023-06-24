@@ -1,4 +1,4 @@
 ## E-Commerce App
 
-- [Project Link](https://bit.ly/fs-ecommerce)
+- [Project Link](https://tee-o.netlify.com)
 # ecommerce-app
