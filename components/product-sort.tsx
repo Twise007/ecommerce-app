@@ -27,13 +27,20 @@ const sortOptions = [
 ]
 
 export function ProductSort() {
+  const router = useRouter()
   return (
     <div className="flex items-center">
-      <Select>
+      <Select onValueChange={value => router.replace(value)}>
         <SelectTrigger className="sm:w-[180px]">
           <SelectValue placeholder="Sort By" />
         </SelectTrigger>
-        <SelectContent>Sort Options</SelectContent>
+        <SelectContent>
+          {sortOptions.map((option) => (
+            <SelectItem key={option.name} value={option.value}>
+              {option.name}
+            </SelectItem>
+          ))}
+        </SelectContent>
       </Select>
       <Sheet>
         <SheetContent className="w-[300px]">
@@ -45,9 +52,9 @@ export function ProductSort() {
           </SheetHeader>
           <ProductFilters />
         </SheetContent>
-        <SheetTrigger className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden">
+        <SheetTrigger className="p-2 ml-4 -m-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden">
           <span className="sr-only">Filters</span>
-          <Filter className="h-5 w-5" aria-hidden="true" />
+          <Filter className="w-5 h-5" aria-hidden="true" />
         </SheetTrigger>
       </Sheet>
     </div>
